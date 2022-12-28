@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+// INCREASE OR DECREASE-------
+import React,{useState} from 'react';
+import './App.css'
+export default function Myname(){
+  const [likeCounter, setLikeCounter] = useState(0);
+  const [dislikeCounter, setDislikeCounter] = useState(0);
+  return[
+    <div>
+      <h1>{likeCounter}</h1>
+      <button id="button1" onClick={()=>{
+        setLikeCounter(likeCounter+1)
+      }}>INCREASE</button>
+      <button id="button2" onClick={()=>{
+        setDislikeCounter(dislikeCounter-1)
+        if (dislikeCounter===0){
+          setLikeCounter(0)
+        }
+      }}>DECREASE</button>
     </div>
-  );
+  ]
 }
-
-export default App;
